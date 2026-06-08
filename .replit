@@ -1,9 +1,16 @@
-run = "sh scripts/start.sh"
+run = "cd backend && npm run dev"
 entrypoint = "backend/src/index.ts"
-modules = ["nodejs-20"]
 
 [nix]
-channel = "stable-23_11"
+channel = "stable-22_11"
 
 [deployment]
-run = "npm run build --prefix frontend && npm run build --prefix backend && npm run start --prefix backend"
+run = ["cd", "backend", "&&", "npm", "run", "dev"]
+
+[[ports]]
+localPort = 3001
+externalPort = 3001
+
+[[ports]]
+localPort = 5173
+externalPort = 5173
