@@ -1,0 +1,9 @@
+run = "sh scripts/start.sh"
+entrypoint = "backend/src/index.ts"
+modules = ["nodejs-20"]
+
+[nix]
+channel = "stable-23_11"
+
+[deployment]
+run = "npm run build --prefix frontend && npm run build --prefix backend && npm run start --prefix backend"
