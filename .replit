@@ -1,11 +1,11 @@
-run = "cd backend && npm run dev"
+run = "bash scripts/start.sh"
 entrypoint = "backend/src/index.ts"
 
 [nix]
 channel = "stable-22_11"
 
 [deployment]
-run = ["cd", "backend", "&&", "npm", "run", "dev"]
+run = ["bash", "scripts/start.sh"]
 
 [[ports]]
 localPort = 3001
