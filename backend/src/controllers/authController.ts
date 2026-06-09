@@ -31,7 +31,7 @@ export const signup = async (req: Request, res: Response) => {
         id: result.lastID, 
         email, 
         subscriptionStatus: 'free',
-        trialEndsAt: newUser.trial_ends_at
+        trialExpiresAt: newUser.trial_ends_at
       } 
     });
   } catch (error: any) {
@@ -66,7 +66,7 @@ export const login = async (req: Request, res: Response) => {
         id: user.id, 
         email: user.email, 
         subscriptionStatus: user.subscription_status,
-        trialEndsAt: user.trial_ends_at
+        trialExpiresAt: user.trial_ends_at
       } 
     });
   } catch (error) {

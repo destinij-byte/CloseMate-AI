@@ -30,10 +30,11 @@ export const getUsage = async (req: AuthRequest, res: Response) => {
 
     res.json({
       subscriptionStatus: status,
-      trialEndsAt: user.trial_ends_at,
+      trialExpiresAt: user.trial_ends_at,
       daysRemaining,
       dailyUsage: usage.count,
-      dailyLimit: (status === 'paid' || status === 'trialing') ? 'unlimited' : 5
+      dailyLimit: (status === 'paid' || status === 'trialing') ? 'unlimited' : 5,
+      isTrialActive
     });
   } catch (error) {
     console.error('Usage error:', error);
